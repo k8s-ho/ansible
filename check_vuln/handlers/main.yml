@@ -1,0 +1,20 @@
+---
+# handlers file for my-role
+
+- name: copy script
+  ansible.builtin.copy:
+    src: "{{ src_file_path }}"
+    dest: "{{ dest_file_path }}"
+  notify: 
+    - noti script
+    - modify permit script file
+
+- name: noti script
+  ansible.builtin.debug:
+    msg: "[+] Complete copy your script at server!! "
+
+- name: modify permit script file
+  ansible.builtin.shell: "chmod +x {{ dest_file_path }}"
+
+- name: start script
+  ansible.builtin.shell: "bash {{ dest_file_path }} {{ result_path }}/{{ result_dir }}"
