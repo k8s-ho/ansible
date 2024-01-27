@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: Print start play
+      ansible.builtin.debug:
+        msg: "Let's start role play"
+
+    - name: Start my role
+      ansible.builtin.import_role:
+        name: check_vuln
