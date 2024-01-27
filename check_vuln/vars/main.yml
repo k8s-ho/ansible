@@ -1,0 +1,8 @@
+---
+# vars file for my-role
+
+result_dir: result
+result_path: /home/ubuntu/
+
+src_file_path: ../files/script.sh
+dest_file_path: '{{ result_path }}/{{ result_dir }}/script.sh'
