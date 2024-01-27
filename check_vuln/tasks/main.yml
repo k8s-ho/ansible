@@ -1,0 +1,16 @@
+---
+# tasks file for my-role
+
+- name: Create script result directory
+  ansible.builtin.file:
+    path: '{{ result_path }}/result'
+    state: directory
+    mode: '0760'
+    owner: ubuntu
+    group: ubuntu
+
+  notify: 
+    - copy script
+    - start script
+
+#- name: Destroy script file
